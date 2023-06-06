@@ -2,13 +2,13 @@
 
 void _puts(char *str)
 {
-	int i;
 
-	while (*str[i] != '\0')
+	while (*str != '\0')
 	{
-		putchar(*str[i] + '0');
-		i++;
+		putchar(*str);
+		++str;
 	}
+	putchar('\n');
 }
 
 int main(void)
