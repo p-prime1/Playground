@@ -11,7 +11,9 @@ int sum_digit(int n)
 
 int main(void)
 {
-	sum_digit(567);
+	int n;
+
+	printf("%d\n" ,sum_digit(567));
 	return (0);
 }
 
