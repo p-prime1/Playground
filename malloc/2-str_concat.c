@@ -1,44 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 
 char *str_concat(char *s1, char *s2)
 {
 	char *s3;
-	int j,i,k;
+	unsigned int i, j, len1, len2;
 
+	
 	i = 0;
-	k = 0;
-
-	j = (strlen(s1) + strlen(s2));
-	s3 = (char*)malloc(sizeof(char) * j);
-
+	len1 = 0;
+	len2 = 0;
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	while (s1[len1] != '\0')
+		len1++;
+	while (s2[len2] != '\0')
+		len2++;
+	len2 += 1;
+	//printf("%d", (len1 + len2));
+	s3 = (char *) malloc(sizeof(char) * (len1 + len2));
+	if (s3 == NULL)
+		return NULL;
 	while (s1[i] != '\0')
 	{
-		s3[i] = s1[i];		
+		s3[i] = s1[i];
 		i++;
 	}
-	while (s2[k] != '\0')
+	while (s2[j] != '\0')
 	{
-		s3[i] = s2[k];
+		s3[i] = s2[j];
 		i++;
-		k++;
-	}
-	s3[i + 1] = '\0';
+		j++;
+		}
+	s3[i] = '\0';
 	return (s3);
-}
-
-int main(void)
-{
-    char *s;
-
-    s = str_concat("Betty ", "Holberton");
-    if (s == NULL)
-    {
-        printf("failed\n");
-        return (1);
-    }
-    printf("%s\n", s);
-    free(s);
-    return (0);
+	free (s3);
 }
